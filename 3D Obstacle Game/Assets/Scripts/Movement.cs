@@ -7,8 +7,17 @@ public class Movement : MonoBehaviour
     [SerializeField] float thrustPower = 1000f;
     [SerializeField] float rotationPower = 100f;
     [SerializeField] AudioClip rocketEngine;
+
+    [SerializeField] ParticleSystem mainEngineParticle;
+    [SerializeField] ParticleSystem oneEngineParticle;
+    [SerializeField] ParticleSystem twoEngineParticle;
+    [SerializeField] ParticleSystem threeEngineParticle;
+    [SerializeField] ParticleSystem fourEngineParticle;
+
     Rigidbody rb;
     AudioSource audioSource;
+
+
 
     void Start()
     {
@@ -27,15 +36,12 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.AddRelativeForce(Vector3.up * thrustPower * Time.deltaTime);
-            if (!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(rocketEngine);
-            }
+            StartThrusting();
         }
         else
         {
-            audioSource.Stop();
+            StopThrusting();
+
         }
     }
 
@@ -43,13 +49,57 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            ApplyRotation(rotationPower);
+            RotateLeft();
         }
 
         else if (Input.GetKey(KeyCode.D))
         {
-            ApplyRotation(-rotationPower);
+            RotateRight();
         }
+        else
+        {
+            StopRotating();
+        }
+    }
+
+    void StartThrusting()
+    {
+        rb.AddRelativeForce(Vector3.up * thrustPower * Time.deltaTime);
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(rocketEngine);
+        }
+        if (!mainEngineParticle.isPlaying) { mainEngineParticle.Play(); }
+        if (!threeEngineParticle.isPlaying) { threeEngineParticle.Play(); }
+        if (!fourEngineParticle.isPlaying) { fourEngineParticle.Play(); }
+    }
+
+    void StopThrusting()
+    {
+        audioSource.Stop();
+        mainEngineParticle.Stop();
+        threeEngineParticle.Stop();
+        fourEngineParticle.Stop();
+    }
+
+
+
+    void RotateLeft()
+    {
+        ApplyRotation(rotationPower);
+        if (!oneEngineParticle.isPlaying) { oneEngineParticle.Play(); }
+    }
+
+    void RotateRight()
+    {
+        ApplyRotation(-rotationPower);
+        if (!twoEngineParticle.isPlaying) { twoEngineParticle.Play(); }
+    }
+
+    void StopRotating()
+    {
+        oneEngineParticle.Stop();
+        twoEngineParticle.Stop();
     }
 
     void ApplyRotation(float rotation)

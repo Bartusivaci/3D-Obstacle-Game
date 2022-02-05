@@ -8,16 +8,42 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] float loadDelay = 1f;
     [SerializeField] AudioClip deathSFX;
     [SerializeField] AudioClip successSFX;
+    [SerializeField] ParticleSystem deathParticles;
+    [SerializeField] ParticleSystem successParticles;
+
 
     AudioSource audioSource;
+    bool isFinished = false;
+    bool collisionDisabled = false;
 
-    private void Start()
+
+    void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
+    void Update()
+    {
+        RespondToDebugKeys();
+    }
+
+
+    void RespondToDebugKeys() //cheat codes
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextLevel();
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            collisionDisabled = !collisionDisabled; //toggle collision on and off
+        }
+    }
+
     void OnCollisionEnter(Collision collision)
     {
+        if (isFinished || collisionDisabled) { return; }
+
         switch (collision.gameObject.tag)
         {
             case "Friendly" :
@@ -34,15 +60,21 @@ public class CollisionHandler : MonoBehaviour
 
     void StartCrashSequence()
     {
+        isFinished = true;
+        audioSource.Stop();
         GetComponent<Movement>().enabled = false;
         audioSource.PlayOneShot(deathSFX);
+        deathParticles.Play();
         Invoke("ReloadLevel", loadDelay);
     }
 
     void StartSuccessSequence()
     {
+        isFinished = true;
+        audioSource.Stop();
         GetComponent<Movement>().enabled = false;
         audioSource.PlayOneShot(successSFX);
+        successParticles.Play();
         Invoke("LoadNextLevel", loadDelay);
     }
 
