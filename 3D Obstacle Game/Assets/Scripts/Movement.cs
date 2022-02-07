@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] float thrustPower = 1000f;
-    [SerializeField] float rotationPower = 100f;
+    [SerializeField] float rotationPower = 125f;
     [SerializeField] AudioClip rocketEngine;
 
     [SerializeField] ParticleSystem mainEngineParticle;

@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Fly Over.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Fly Under.unity
-    guid: fa9f03bca73183b4f9adf8624d2d9cc0
+    path: Assets/Scenes/Fly Between.unity
+    guid: 7373be22aa88dca4fbe30d98df21adf1
+  - enabled: 1
+    path: Assets/Scenes/Moving Level 1.unity
+    guid: 575d81b83ed1b9c41ab7a2a50ce5c9f1
+  - enabled: 1
+    path: Assets/Scenes/Moving Level 2.unity
+    guid: e99f611ef0bbf4f47b96d3951824b256
+  - enabled: 1
+    path: Assets/Scenes/Moving Level 3.unity
+    guid: bb836f45515698b40b10e2252ce5050c
   m_configObjects: {}
