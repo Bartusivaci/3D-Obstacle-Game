@@ -26,9 +26,11 @@ Space Trap is a 3D Obstacle Game where you try to reach your destination with yo
 
 ![Space Trap _ SIMMER io - Google Chrome 2_8_2022 1_45_49 AM](https://user-images.githubusercontent.com/86726474/152885467-e9b82975-7cad-4e13-b655-09532a4b2812.png)
 
-## LINK TO PLAY:
+## LINKS TO PLAY:
 
 [<img src="https://cms.simmer.io/content/images/2019/08/simmer-badge-super-high-resolution-2.png" width=200px>](https://simmer.io/@bartu/space-trap)
+
+[<img src="https://static.itch.io/images/badge.svg" width=200px>](https://bartusivaci.itch.io/space-trap)
 
 ## CREDITS:
 
