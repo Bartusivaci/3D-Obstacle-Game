@@ -30,5 +30,9 @@ Space Trap is a 3D Obstacle Game where you try to reach your destination with yo
 
 [<img src="https://cms.simmer.io/content/images/2019/08/simmer-badge-super-high-resolution-2.png" width=200px>](https://simmer.io/@bartu/space-trap)
 
+## CREDITS:
+
+* Space Rocket - Whaleride - https://assetstore.unity.com/packages/3d/vehicles/space/rocket-cartoon-capsule-196997
+
 
 
